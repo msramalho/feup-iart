@@ -1,1 +1,2 @@
-.ipynb_checkpoints/*
+# IART
+## [Jupyter notebook](Anuran%20Calssification.ipynb)
