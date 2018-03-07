@@ -6,6 +6,9 @@ from ParsingProcesser import ParsingProcesser
 FRACTION = 0.1
 
 class Splitter:
+    '''
+    has the purpose of dividing the data into training and testing sets for tensorflow
+    '''
     def __init__(self, data_df):
         self.data_df = data_df
 
@@ -39,6 +42,9 @@ class Splitter:
         test_df.sort_index(inplace=True)
 
         return self._get_tensorflow_data(training_df, test_df)
+
+    def divide_random_by_category(self, training_fraction):
+        raise Exception("Not yet implemented")        
 
 
 if __name__ == '__main__':

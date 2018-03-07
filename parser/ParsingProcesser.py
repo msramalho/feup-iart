@@ -4,6 +4,9 @@ import tempfile
 import os
 
 class ParsingProcesser:
+    '''
+    Has the purpose of parsing the data and replacing the category string values to numbers
+    '''
     DATASET_PATH = "../dataset/frogs.csv"
     ROW_LABEL_PAIR = (22, 25)
     SEPARATOR = "-"
