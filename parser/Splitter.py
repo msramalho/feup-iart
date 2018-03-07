@@ -8,6 +8,13 @@ FRACTION = 0.1
 class Splitter:
     def __init__(self, data_df):
         self.data_df = data_df
+
+    def _get_tensorflow_data(self, train_df, test_df):
+        column_label = list(self.data_df.columns.values)[-1]
+        train_index_df = train_df.pop(column_label)
+        test_index_df = test_df.pop(column_label)
+        return (train_df, train_index_df), (test_df, test_index_df)
+
     
     def divide_data_random(self, training_fraction):
         '''
@@ -31,12 +38,14 @@ class Splitter:
         test_df = self.data_df.ix[test_indexes]
         test_df.sort_index(inplace=True)
 
-        return training_df, test_df
+        return self._get_tensorflow_data(training_df, test_df)
 
 
 if __name__ == '__main__':
     parser = ParsingProcesser()
     df, categories_map = parser.build_dataframe()
     splitter = Splitter(df)
-    training, test = splitter.divide_data_random(FRACTION)
-    print(training, test)
+    (train_x, train_y), (test_x, test_y) = splitter.divide_data_random(FRACTION)
+
+    print((train_x, train_y), (test_x, test_y))
+    
