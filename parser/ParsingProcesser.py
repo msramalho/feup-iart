@@ -7,7 +7,7 @@ class ParsingProcesser:
     '''
     Has the purpose of parsing the data and replacing the category string values to numbers
     '''
-    DATASET_PATH = "../dataset/frogs.csv"
+    DATASET_PATH = "dataset/frogs.csv"
     ROW_LABEL_PAIR = (22, 25)
     SEPARATOR = "-"
     INDEX_CATEGORY_LABEL = "category_index"
@@ -25,24 +25,32 @@ class ParsingProcesser:
     def build_dataframe(self):
         self._process_data_facade()
         df_data = pd.read_pickle(self._temp_filepath)
-        cat_map = self.get_category_map()
+        cat_map = self.get_index_category_tuples()
         return df_data, cat_map
 
     def get_temp_filepath(self):
         tmp_dir = tempfile.gettempdir()
         return os.path.join(tmp_dir, self.TMP_FILENAME)
 
-    def get_category_map(self):
+    def get_index_category_tuples(self):
         '''
         return a map of type
          Family-Genus-Species: index
          index is to be used by tensorflow
         '''
-        return self.categories_map
+        numElems = len(self.categories_map)
+        indexNames = [None] * numElems
+        for categories, index in self.categories_map.items():
+            indexNames[index] = self._split_row_strings(categories)
+        return indexNames
     
 
     def _join_row_strings(self, rows, separator = SEPARATOR):
          return separator.join(rows)
+
+    def _split_row_strings(self, joined_rows, separator = SEPARATOR):
+        arr = joined_rows.split(separator)
+        return tuple(arr)
 
     def _build_categories_map(self):
         ''' 
@@ -64,7 +72,7 @@ class ParsingProcesser:
 
     def _convert_categories_to_index(self, df_parameteres, df_categories):
         cat_indexes = []
-        for index, rows in df_categories.iterrows():
+        for _index, rows in df_categories.iterrows():
             seq = rows[0:]
             catString = self._join_row_strings(seq)
             cat_indexes.append(self.categories_map[catString])
@@ -103,4 +111,4 @@ class ParsingProcesser:
 if __name__ == '__main__':
     parser = ParsingProcesser()
     df, cat_map = parser.build_dataframe()
-    print(df)
+    print(cat_map)
