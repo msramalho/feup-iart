@@ -3,7 +3,13 @@ import numpy as np
 
 from ParsingProcesser import ParsingProcesser
 
+import pandas as pd 
+pd.options.mode.chained_assignment = None
+
+
+
 FRACTION = 0.1
+
 
 class Splitter:
     '''
@@ -35,11 +41,14 @@ class Splitter:
         training_indexes = np.random.random_integers(0, total_num_items - 1, num_fraction_items)
         test_indexes = np.delete(indexes, training_indexes)
 
-        training_df = self.data_df.ix[training_indexes]
+        training_df = self.data_df.ix[training_indexes].copy(deep=True)
         training_df.sort_index(inplace=True)
 
-        test_df = self.data_df.ix[test_indexes]
+        test_df = self.data_df.ix[test_indexes].copy(deep=True)
         test_df.sort_index(inplace=True)
+
+        test_df = test_df.reset_index(drop=True)
+        training_df = training_df.reset_index(drop=True)
 
         return self._get_tensorflow_data(training_df, test_df)
 
@@ -53,5 +62,5 @@ if __name__ == '__main__':
     splitter = Splitter(df)
     (train_x, train_y), (test_x, test_y) = splitter.divide_data_random(FRACTION)
 
-    print((train_x, train_y), (test_x, test_y))
+    print((train_x), (test_x))
     
