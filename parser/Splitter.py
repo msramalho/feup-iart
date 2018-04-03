@@ -3,7 +3,13 @@ import numpy as np
 
 from ParsingProcesser import ParsingProcesser
 
+import pandas as pd 
+pd.options.mode.chained_assignment = None
+
+
+
 FRACTION = 0.1
+
 
 class Splitter:
 	'''
