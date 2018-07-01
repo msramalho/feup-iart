@@ -1,6 +1,6 @@
 # FEUP IART
 
-Univeristy Subject - ARtificial Intelligence (Inteligência Artificial)
+Univeristy Subject - Artificial Intelligence (Inteligência Artificial)
 
 [Faculty of Engeneering of University of Porto](https://sigarra.up.pt/feup/en/WEB_PAGE.INICIAL)
 
