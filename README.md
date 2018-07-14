@@ -14,7 +14,7 @@ With the colaboration of [Rostyslav Khoptiy](https://github.com/Ross65536).
  - k-Fold Cross-Validation
  - Libraries: [Tensorflow](https://www.tensorflow.org/), [Pandas](https://pandas.pydata.org/), [scikit-learn](http://scikit-learn.org), [matplotlib](https://matplotlib.org/)
  - Evaluation: confusion matrix, precision, recall, f-score, ...
- - [Jupyter notebook](Anuran%20Calssification.ipynb)
+ - [Jupyter notebook](Anuran%20Classification.ipynb)
 
 ## Example of Configuration Comparison
 <p align="center"><img src="https://github.com/msramalho/feup-iart/blob/master/report_material/images/experiments/kfold_80.png?raw=true"/></p>
