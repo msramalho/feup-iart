@@ -1,15 +1,13 @@
 # FEUP IART
 
-Developed by Rostyslav Khoptiy and Miguel Sozinho Ramalho
+Developed by [Rostyslav Khoptiy](https://github.com/Ross65536) and [Miguel Sozinho Ramalho](https://github.com/msramalho)
 
 
 Univeristy Subject - Artificial Intelligence (Inteligência Artificial)
 
-[Faculty of Engeneering of University of Porto](https://sigarra.up.pt/feup/en/WEB_PAGE.INICIAL)
+[Faculty of Engineering of University of Porto](https://sigarra.up.pt/feup/en/WEB_PAGE.INICIAL)
 
 2017/2018
-
-With the colaboration of [Rostyslav Khoptiy](https://github.com/Ross65536).
 
 ## Interesting features
  - Deep Neural Networks
